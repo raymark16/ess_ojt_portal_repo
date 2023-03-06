@@ -1,0 +1,79 @@
+body, html {
+    background: white;
+    background-image: url('../public/image/FCPC\ LOGO.png');
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-bottom: 0;
+    padding-top: 0;
+    height: 100vh;
+    min-height: 100vh;
+}
+
+section{
+    margin-bottom: 20px;
+}
+
+.link{
+    color:blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.heading{
+    background-color: var(--first-color);
+}
+
+.hide{
+    display: none;
+}
+
+.content{
+    min-height: calc(100% - 75px);
+}
+
+.footer{
+    margin-top: auto;
+    height: 75px;
+}
+
+.flex-wrapper{
+    margin-top: 25vh;
+    background-size: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-item{
+    margin: auto;
+    width: 100%;
+    padding: 0;
+    display: block;
+}
+
+.flex-buttons{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.flex{
+    display: flex;
+}
+
+.save-button{
+    margin:auto;
+    min-width: 50%;
+}
+
+.center{
+    justify-content: center;
+}
+
+.margin-auto{
+    margin: auto;
+}
