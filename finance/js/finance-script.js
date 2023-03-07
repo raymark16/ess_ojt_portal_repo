@@ -2,11 +2,7 @@ var stud_reg_id = 0;
 var remarks = '';
 var id = 0;
 
-$(document).ready(function () {
-	$('#student-transaction').hide();
-	$('#payment-details').hide();
-	$('#view-documents').hide();
-
+function FinanceLandingPage() {
 	$.ajax({
 		type: 'GET',
 		url: '../controller/FinanceInfo.php',
@@ -46,23 +42,38 @@ $(document).ready(function () {
 					let status = "";
 
 					if (value.REG_STATUS == 2) {
-						status = "<label class='btn btn-outline-secondary' style='font-size:13px;'>ESS VERIFIED</label>";
+						status = "<label class='btn btn-outline-secondary' style='font-size:13px;' disabled>ESS VERIFIED</label>";
 					}
 					if (value.REG_STATUS == 3) {
-						status = "<label class='btn btn-outline-warning' style='font-size:13px;'>FINANCE VERIFIED</label>";
+						status = "<label class='btn btn-warning' style='font-size:13px;' disabled>STUDENT PROCESSED</label>";
 					}
 					if (value.REG_STATUS == 4) {
-						status = "<label class='btn btn-outline-success' style='font-size:13px;'>STUDENT ENROLLED</label>";
+						status = "<label class='btn btn-outline-success' style='font-size:13px;' disabled>STUDENT ENROLLED</label>";
 					}
-
+					
+					$.ajax({
+						type: 'GET',
+						url: '../controller/FinanceInfo.php',
+						data:
+						{
+							type: 'GET_PAYMENTS',
+							reg_id: value.REG_ID,
+						},
+						dataType: 'json',
+						success: function (result) {
+							console.log(result)
+						},
+						error: function (request, status, error) {
+							console.log(request.responseText);
+						}
+					});
 					// financeRecord +=		"<td>" + status + "</td>" +
 					// 						"<td><button type='button' id='PaymentTrend' name='PaymentTrend' class='btn btn-primary style='font-size: 13px;'>PAYMENT TREND</button></td>" +
 					// 					"</tr>";
 					payment = "<button type='button' id='PaymentTrend' name='PaymentTrend' class='btn btn-primary PaymentTrend' style='font-size: 13px;' value='" + value.REG_ID + "'>PAYMENT TREND</button>";
-					child_arr.push(value.REG_ID, value.REG_DATE, value.NAME, value.STUDENT_TYPE, value.LVL_NAME, value.CRSE_NAME, value.YRLVL_NAME, status, payments_verified,payment);
+					child_arr.push(value.REG_ID, value.REG_DATE, value.NAME, value.STUDENT_TYPE, value.LVL_NAME, value.CRSE_NAME, value.YRLVL_NAME, status, payments_verified, payment);
 					parent_arr.push(child_arr);
 					count++;
-
 				});
 				// $('#finance-records tr').remove();
 				// $('#finance-records').append(financeRecord);
@@ -96,6 +107,14 @@ $(document).ready(function () {
 			console.log(request.responseText);
 		}
 	});
+}
+
+$(document).ready(function () {
+	$('#student-transaction').hide();
+	$('#payment-details').hide();
+	$('#view-documents').hide();
+
+	FinanceLandingPage();
 
 	$(document).on("click", '#return', function (event) {
 		$('#finance-table_wrapper').show();
@@ -104,7 +123,8 @@ $(document).ready(function () {
 		stud_reg_id = 0;
 		$('#regtable').DataTable().clear().draw();
 		$("#regtable").DataTable().ajax.reload();
-
+		$('#finance-table').DataTable().destroy();
+		FinanceLandingPage();
 	});
 
 	var parent_arr = [];

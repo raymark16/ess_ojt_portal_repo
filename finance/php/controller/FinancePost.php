@@ -24,7 +24,7 @@ if ($_POST['type'] == 'PROCESS_STUDENT') {
 
 	mysqli_query($dbConn, $qry);
 
-	$status = " UPDATE school_enrollment_pre_registration 
+	$status = "UPDATE school_enrollment_pre_registration 
                         SET schlenrollprereg_status = 4
                         WHERE `schlenrollprereg_id` = $userid";
 
