@@ -129,7 +129,17 @@ if ($_GET['type'] == 'GET_PAYMENTS') {
 			FROM oc_enrollment_payments WHERE `registration_id` = '$reg_id'";
 
 	$rsreg = $dbConn->query($qry);
-	$fetch = $rsreg->fetch_ALL(MYSQLI_ASSOC);
+	$fetch = $rsreg->fetch_array(MYSQLI_ASSOC);
+}
+
+if ($_GET['type'] == 'GET_VERIFIED_PAYMENTS') {
+	$reg_id = $_GET['reg_id'];
+	$qry = "SELECT
+			COUNT(`payment_status`)
+			FROM `oc_enrollment_payments` WHERE `registration_id` = '$reg_id'  AND `payment_status` = 1";
+
+	$rsreg = $dbConn->query($qry);
+	$fetch = $rsreg->fetch_array(MYSQLI_ASSOC);
 }
 
 // if ($_GET['type'] == 'DOWNLOAD_DOCUMENT') {

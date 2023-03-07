@@ -2,8 +2,55 @@ var stud_reg_id = 0;
 var remarks = '';
 var id = 0;
 
+function GetPaymentCount(id) {
+	$.ajax({
+		async: false,
+		type: 'GET',
+		url: '../controller/FinanceInfo.php',
+		data:
+		{
+			type: 'GET_PAYMENTS',
+			reg_id: id,
+		},
+		dataType: 'json',
+		success: function (result) {
+
+			// console.log(result['COUNT'])
+			// console.log('')
+			return result['COUNT'];
+		},
+		error: function (request, status, error) {
+			console.log(request.responseText);
+		}
+	});
+}
+
+function GetVerifiedPaymentCount(id) {
+	$.ajax({
+		async: false,
+		type: 'GET',
+		url: '../controller/FinanceInfo.php',
+		data:
+		{
+			type: 'GET_VERIFIED_PAYMENTS',
+			reg_id: id,
+		},
+		dataType: 'json',
+		success: function (result) {
+
+			// console.log(result['COUNT'])
+			// console.log('')
+			return result['COUNT'];
+		},
+		error: function (request, status, error) {
+			console.log(request.responseText);
+		}
+	});
+}
+
 function FinanceLandingPage() {
 	$.ajax({
+		async: false,
 		type: 'GET',
 		url: '../controller/FinanceInfo.php',
 		data:
@@ -50,23 +97,18 @@ function FinanceLandingPage() {
 					if (value.REG_STATUS == 4) {
 						status = "<label class='btn btn-outline-success' style='font-size:13px;' disabled>STUDENT ENROLLED</label>";
 					}
-					
-					$.ajax({
-						type: 'GET',
-						url: '../controller/FinanceInfo.php',
-						data:
-						{
-							type: 'GET_PAYMENTS',
-							reg_id: value.REG_ID,
-						},
-						dataType: 'json',
-						success: function (result) {
-							console.log(result)
-						},
-						error: function (request, status, error) {
-							console.log(request.responseText);
-						}
-					});
+					// var payments_count = GetPaymentCount(value.REG_ID);
+					// // console.log(value.REG_ID)
+					// var verified_payments = GetVerifiedPaymentCount(value.REG_ID);
+					// if (payments_count == 0) {
+
+					// }
+					// else if (payments_count == verified_payments) {
+					// 	payments_verified = "<label type='label' class='btn btn-outline-success' disabled style='font-size: 13px;'> All payments are verified </label>";
+					// }
+					// else {
+					// 	payments_verified = "<label type='label' class='btn btn-outline-danger' disabled style='font-size: 13px;' >" + payments_count + " payment verified out of " + verified_payments + "</label>";
+					// }
 					// financeRecord +=		"<td>" + status + "</td>" +
 					// 						"<td><button type='button' id='PaymentTrend' name='PaymentTrend' class='btn btn-primary style='font-size: 13px;'>PAYMENT TREND</button></td>" +
 					// 					"</tr>";
