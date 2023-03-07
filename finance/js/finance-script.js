@@ -1,56 +1,54 @@
 var stud_reg_id = 0;
 var remarks = '';
 var id = 0;
+var payments_count = 0;
+var verified_payments = 0;
 
-function GetPaymentCount(id) {
-	$.ajax({
-		async: false,
-		type: 'GET',
-		url: '../controller/FinanceInfo.php',
-		data:
-		{
-			type: 'GET_PAYMENTS',
-			reg_id: id,
-		},
-		dataType: 'json',
-		success: function (result) {
+// function GetPaymentCount(id) {
+// 	$.ajax({
+// 		async: false,
+// 		type: 'GET',
+// 		url: '../controller/FinanceInfo.php',
+// 		data:
+// 		{
+// 			type: 'GET_PAYMENTS',
+// 			reg_id: id,
+// 		},
+// 		dataType: 'json',
+// 		success: function (result) {
+// 			// console.log(id + " " + result.PAYMENT_COUNT);
+// 			payments_count = result.PAYMENT_COUNT;
+// 		},
+// 		error: function (request, status, error) {
+// 			console.log(request.responseText);
+// 		}
+// 	});
+// }
 
-			// console.log(result['COUNT'])
-			// console.log('')
-			return result['COUNT'];
-		},
-		error: function (request, status, error) {
-			console.log(request.responseText);
-		}
-	});
-}
-
-function GetVerifiedPaymentCount(id) {
-	$.ajax({
-		async: false,
-		type: 'GET',
-		url: '../controller/FinanceInfo.php',
-		data:
-		{
-			type: 'GET_VERIFIED_PAYMENTS',
-			reg_id: id,
-		},
-		dataType: 'json',
-		success: function (result) {
-
-			// console.log(result['COUNT'])
-			// console.log('')
-			return result['COUNT'];
-		},
-		error: function (request, status, error) {
-			console.log(request.responseText);
-		}
-	});
-}
+// function GetVerifiedPaymentCount(id) {
+// 	$.ajax({
+// 		async: false,
+// 		type: 'GET',
+// 		url: '../controller/FinanceInfo.php',
+// 		data:
+// 		{
+// 			type: 'GET_VERIFIED_PAYMENTS',
+// 			reg_id: id,
+// 		},
+// 		dataType: 'json',
+// 		success: function (result) {
+// 			// console.log(id + " " + result.VERIFIED_PAYMENT_COUNT);
+// 			payments_count = result.VERIFIED_PAYMENT_COUNT;
+// 		},
+// 		error: function (request, status, error) {
+// 			console.log(request.responseText);
+// 		}
+// 	});
+// }
 
 function FinanceLandingPage() {
 	$.ajax({
-		async: false,
+		async: true,
 		type: 'GET',
 		url: '../controller/FinanceInfo.php',
 		data:
@@ -87,32 +85,73 @@ function FinanceLandingPage() {
 					// 						"<td>" + value.YRLVL_NAME 	+ "</td>";
 
 					let status = "";
+					let payment = '';
 
 					if (value.REG_STATUS == 2) {
-						status = "<label class='btn btn-outline-secondary' style='font-size:13px;' disabled>ESS VERIFIED</label>";
+						status = "<label class='btn btn-outline-secondary' style='font-size: 10px;pointer-events:none;' disabled>ESS VERIFIED</label>";
 					}
 					if (value.REG_STATUS == 3) {
-						status = "<label class='btn btn-warning' style='font-size:13px;' disabled>STUDENT PROCESSED</label>";
+						status = "<label class='btn btn-outline-info' style='font-size: 10px;pointer-events:none;' disabled>STUDENT PROCESSED</label>";
 					}
 					if (value.REG_STATUS == 4) {
-						status = "<label class='btn btn-outline-success' style='font-size:13px;' disabled>STUDENT ENROLLED</label>";
+						status = "<label class='btn btn-outline-success' style='font-size: 10px;pointer-events:none;' disabled>STUDENT ENROLLED</label>";
 					}
-					// var payments_count = GetPaymentCount(value.REG_ID);
-					// // console.log(value.REG_ID)
-					// var verified_payments = GetVerifiedPaymentCount(value.REG_ID);
-					// if (payments_count == 0) {
+					// GetPaymentCount(value.REG_ID);
+					// GetVerifiedPaymentCount(value.REG_ID);
+					$.ajax({
+						async: false,
+						type: 'GET',
+						url: '../controller/FinanceInfo.php',
+						data:
+						{
+							type: 'GET_PAYMENTS',
+							reg_id: value.REG_ID
+						},
+						dataType: 'json',
+						success: function (result) {
+							// console.log(id + " " + result.PAYMENT_COUNT);
+							payments_count = result.PAYMENT_COUNT;
+						},
+						error: function (request, status, error) {
+							console.log(request.responseText);
+						}
+					});
 
-					// }
-					// else if (payments_count == verified_payments) {
-					// 	payments_verified = "<label type='label' class='btn btn-outline-success' disabled style='font-size: 13px;'> All payments are verified </label>";
-					// }
-					// else {
-					// 	payments_verified = "<label type='label' class='btn btn-outline-danger' disabled style='font-size: 13px;' >" + payments_count + " payment verified out of " + verified_payments + "</label>";
-					// }
-					// financeRecord +=		"<td>" + status + "</td>" +
-					// 						"<td><button type='button' id='PaymentTrend' name='PaymentTrend' class='btn btn-primary style='font-size: 13px;'>PAYMENT TREND</button></td>" +
-					// 					"</tr>";
-					payment = "<button type='button' id='PaymentTrend' name='PaymentTrend' class='btn btn-primary PaymentTrend' style='font-size: 13px;' value='" + value.REG_ID + "'>PAYMENT TREND</button>";
+					$.ajax({
+						async: false,
+						type: 'GET',
+						url: '../controller/FinanceInfo.php',
+						data:
+						{
+							type: 'GET_VERIFIED_PAYMENTS',
+							reg_id: value.REG_ID
+						},
+						dataType: 'json',
+						success: function (result) {
+							// console.log(id + " " + result.VERIFIED_PAYMENT_COUNT);
+							verified_payments = result.VERIFIED_PAYMENT_COUNT;
+						},
+						error: function (request, status, error) {
+							console.log(request.responseText);
+						}
+					});
+
+					payment = "<button type='button' id='PaymentTrend' name='PaymentTrend' class='btn btn-primary PaymentTrend' style='font-size: 10px;' value='" + value.REG_ID + "'>PAYMENT TREND</button>";
+
+					if (payments_count == 0) {
+						payment = "<label type='label' class='btn btn-outline-dark' disabled style='font-size: 10px;pointer-events:none;'>No payment available.</label>";
+					}
+					else if (payments_count == verified_payments) {
+						payments_verified = "<label type='label' class='btn btn-outline-success' disabled style='font-size: 10px;pointer-events:none;'> All payments are verified </label>";
+					}
+					else {
+						if (verified_payments == 1) {
+							payments_verified = "<label type='label' class='btn btn-outline-danger' disabled style='font-size: 10px;pointer-events:none;' >" + verified_payments + " payment verified out of " + payments_count + "</label>";
+						} else {
+							payments_verified = "<label type='label' class='btn btn-outline-danger' disabled style='font-size: 10px;pointer-events:none;' >" + verified_payments + " payments verified out of " + payments_count + "</label>";
+						}
+					}
+
 					child_arr.push(value.REG_ID, value.REG_DATE, value.NAME, value.STUDENT_TYPE, value.LVL_NAME, value.CRSE_NAME, value.YRLVL_NAME, status, payments_verified, payment);
 					parent_arr.push(child_arr);
 					count++;
@@ -138,8 +177,8 @@ function FinanceLandingPage() {
 					],
 					// order: [[0, 'desc']],
 					pageLength: 10,
-					scrollY: "500px",
-					scrollX: true,
+					// scrollY: "500px",
+					// scrollX: true,
 					scrollCollapse: true,
 
 				});
@@ -188,29 +227,30 @@ $(document).ready(function () {
 				if (result.length > 0) {
 					$.each(result, function (key, value) {
 						var child_arr = []
-						action_btn = "<button type='button' id='viewDetails' name='viewDetails' class='btn btn-primary viewDetails' style='font-size: 13px;' value='" + value.RECEIPT + "'>VIEW PAYMENT FORM</button>";
+						var other_action_btn = '';
+						action_btn = "<button type='button' id='viewDetails' name='viewDetails' class='btn btn-primary viewDetails' style='font-size: 10px;' value='" + value.RECEIPT + "'>VIEW PAYMENT FORM</button>";
 						if (value.PAYMENT_STATUS == 1) {
-							payment_label = "<label type='label' class='text-success' disabled>Payment Verified</label>";
+							payment_label = "<button type='button' class='btn btn-outline-success' style='font-size: 10px;' disabled>Payment Verified</button>";
 						} else {
-							payment_label = "<label type='label' class='text-danger' disabled>Not Verified</label>";
+							payment_label = "<button type='button' class='btn btn-outline-danger' style='font-size: 10px;' disabled>Not Verified</button>";
 						}
 
 						if (value.payment_remarks == 'tuition') {
 							switch (parseInt(value.schlenrollprereg_verification)) {
 								case 2:
-									action_btn += "<button type='button' id='process_btn' name='process_btn' class='btn btn-secondary' style='font-size: 13px;' value='" + value.REG_ID + "' data-toggle='modal' data-target='#process_stud_modal'>PROCESS STUDENT</button>";
+									other_action_btn = "<button type='button' id='process_btn' name='process_btn' class='btn btn-secondary' style='font-size: 10px;' value='" + value.REG_ID + "' data-toggle='modal' data-target='#process_stud_modal'>PROCESS STUDENT</button>";
 									break;
 								case 3:
-									action_btn += "<button type='button' id='send_coe' name='send_coe' class='btn btn-warning' style='font-size: 13px;' value='" + value.REG_ID + "' data-toggle='modal' data-target='#send_coe_modal'>SEND COE</button>";
+									other_action_btn = "<button type='button' id='send_coe' name='send_coe' class='btn btn-warning' style='font-size: 10px;' value='" + value.REG_ID + "' data-toggle='modal' data-target='#send_coe_modal'>SEND COE</button>";
 									break;
 								case 4:
-									action_btn += "<button type='button' id='student_enrolled' name='student_enrolled' class='btn btn-outline-success' style='font-size: 13px;' value='" + value.REG_ID + "'>STUDENT ENROLLED</button>";
+									other_action_btn = "<button type='button' id='student_enrolled' name='student_enrolled' class='btn btn-outline-success' style='font-size: 10px;pointer-events:none;' value='" + value.REG_ID + "'>STUDENT ENROLLED</button>";
 									break;
 								default:
 									console.log("ERROR")
 							}
 						} else if (value.payment_remarks == 'installment') {
-							action_btn += "<button type='button' id='other_payments' name='other_payments' class='btn btn-outline-primary other_payments' style='font-size: 13px;' value='" + value.REG_ID + "'>OTHER PAYMENTS</button>";
+							other_action_btn = "<button type='button' id='other_payments' name='other_payments' class='btn btn-outline-primary other_payments' style='font-size: 10px;pointer-events:none;' value='" + value.REG_ID + "'>OTHER PAYMENTS</button>";
 						}
 
 						child_arr.push(count,
@@ -221,7 +261,8 @@ $(document).ready(function () {
 							value.TRANSACTION_DATE,
 							value.REFERENCE_ID,
 							payment_label,
-							action_btn);
+							action_btn,
+							other_action_btn);
 						parent_arr.push(child_arr);
 						count++;
 					});
@@ -248,8 +289,10 @@ $(document).ready(function () {
 			{ title: 'TRANSACTION DATE' },
 			{ title: 'TRANSACTION NO.' },
 			{ title: 'PAYMENT STATUS' },
+			{ title: 'ACTIONS' },
 			{ title: 'ACTIONS' }
 		],
+		scrollX: false
 	});
 	$('#regtable').parents('div.dataTables_wrapper').first().hide();
 
@@ -273,6 +316,7 @@ $(document).ready(function () {
 		// stud_reg_id = $(this).val();
 		var receipt = $(this).val();
 		id = receipt;
+
 		$.ajax({
 			type: 'GET',
 			url: '../controller/FinanceInfo.php',
@@ -297,6 +341,13 @@ $(document).ready(function () {
 				$('#referenceNumber').val(result.reference_number);
 				$('#transaction_date').val(result.transaction_date);
 				$('#payment_type').val(result.payment_remarks).change();
+				if (result.document_location != '') {
+					$('#no_document').hide();
+					$('#view_document').show();
+				} else {
+					$('#view_document').hide();
+					$('#no_document').show();
+				}
 			},
 			error: function (request, status, error) {
 				console.log(request.responseText);
@@ -310,6 +361,7 @@ $(document).ready(function () {
 		$('#payment-details').hide();
 		// $('#regtable').DataTable().clear().draw();
 		$("#regtable").DataTable().ajax.reload();
+		$("#bg").attr('src', '');
 	});
 
 	$(document).on("click", '#process_btn', function () {
@@ -392,7 +444,7 @@ $(document).ready(function () {
 			dataType: 'json',
 			success: function (result) {
 				$("#bg").attr('src', result.document_location);
-				$("#download_document_link").attr('href', '../controller/DownloadController.php?id=1588');
+				$("#download_document_link").attr('href', '../controller/DownloadController.php?id=' + id);
 				// console.log(id)
 			},
 			error: function (request, status, error) {

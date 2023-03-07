@@ -105,8 +105,12 @@ if ($_GET['type'] == 'STUD_DETAILS') {
 			`bank`,
 			`reference_number`,
 			`transaction_date`,
-			`payment_remarks`
-			FROM `oc_enrollment_payments` LEFT JOIN `school_enrollment_pre_registration` ON `oc_enrollment_payments`.`registration_id` = `school_enrollment_pre_registration`.`schlenrollprereg_id` WHERE `oc_enrollment_payments`.`receipt_id` = '$receipt_id'";
+			`payment_remarks`,
+			`document_location`
+			FROM `oc_enrollment_payments` 
+			LEFT JOIN `school_enrollment_pre_registration` ON `oc_enrollment_payments`.`registration_id` = `school_enrollment_pre_registration`.`schlenrollprereg_id`
+			LEFT JOIN `oc_uploaded_documents` ON `oc_enrollment_payments`.`receipt_id` = `oc_uploaded_documents`.`document_id` 
+			WHERE `oc_enrollment_payments`.`receipt_id` = '$receipt_id'";
 
 	$rsreg = $dbConn->query($qry);
 	$fetch = $rsreg->fetch_array(MYSQLI_ASSOC);
@@ -125,7 +129,7 @@ if ($_GET['type'] == 'VIEW_DOCUMENT') {
 if ($_GET['type'] == 'GET_PAYMENTS') {
 	$reg_id = $_GET['reg_id'];
 	$qry = "SELECT
-			COUNT(`payment_status`)
+			COUNT(`payment_status`) `PAYMENT_COUNT`
 			FROM oc_enrollment_payments WHERE `registration_id` = '$reg_id'";
 
 	$rsreg = $dbConn->query($qry);
@@ -135,7 +139,7 @@ if ($_GET['type'] == 'GET_PAYMENTS') {
 if ($_GET['type'] == 'GET_VERIFIED_PAYMENTS') {
 	$reg_id = $_GET['reg_id'];
 	$qry = "SELECT
-			COUNT(`payment_status`)
+			COUNT(`payment_status`) `VERIFIED_PAYMENT_COUNT`
 			FROM `oc_enrollment_payments` WHERE `registration_id` = '$reg_id'  AND `payment_status` = 1";
 
 	$rsreg = $dbConn->query($qry);

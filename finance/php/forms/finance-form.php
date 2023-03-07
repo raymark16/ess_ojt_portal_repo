@@ -62,7 +62,7 @@
 	?>
 	<style>
 		#finance-table_length label,
-		#finance-table_filter label {
+		#finance-table_filter label,#regtable_length label,#regtable_filter label {
 			font-family: inherit;
 			text-transform: uppercase;
 			color: inherit;
@@ -91,7 +91,7 @@
 
 		<div class="container">
 			<div class='container' id='finance-dasboard'>
-				<table id='finance-table' class='table table-hover table-bordered' style="font-size:13px; width=100%">
+				<table id='finance-table' class='table table-hover table-bordered' style="font-size:12px;text-align: center;" width="100%">
 					<thead class='table-primary'>
 						<!-- <tr>    
 							<th scope='col' style='text-align:center;'>#</th>   
@@ -118,10 +118,10 @@
 			<div class='container' id="student-transaction">
 				<br><br>
 				<table id='regtable' class='table table-hover table-responsive table-bordered'
-					style='text-align:center;'>
+					style='text-align:center;font-size:12px'>
 					<thead class='table-primary'>
 						<tr>
-							<!-- <th scope='col'>#</th>
+							<th scope='col'>#</th>
 							<th scope='col'>Date</th>
 							<th scope='col'>Transaction</th>
 							<th scope='col'>Bank name</th>
@@ -129,14 +129,16 @@
 							<th scope='col'>Transaction Date</th>
 							<th scope='col'>Transaction Number</th>
 							<th scope='col'>Payment Status</th>
-							<th scope='col' colspan=2>Actions</th> -->
+							<th colspan=2>
+								<center>ACTIONS</center>
+							</th>
 						</tr>
 					</thead>
 					<tbody>
 					</tbody>
 					<tfoot>
 						<tr>
-							<td colspan=9>
+							<td colspan=10>
 								<center><button type="button" id="return" style='font-size: 40;'
 										class='btn btn-secondary'>GO BACK</button></center>
 							</td>
@@ -294,7 +296,7 @@
 					<div align="center" class="mb-3" style="background-color: lightblue;">
 						<h2>STUDENT DOCUMENTS</h2>
 					</div>
-					<div class="col-md-3">
+					<div id='view_document_section' class="col-md-3">
 						<!-- <label id='view_document' class='btn btn-info form-control download_link download_link' style='font-size: 20;'>
 							<span class='iconify' data-icon='bx:download'></span>View Document
 						</label> -->
@@ -303,28 +305,30 @@
 						<button type="button" id="view_document" style='font-size: 40;'
 							class="btn btn-info form-control download_link download_link"><span class='iconify'
 								data-icon='bx:download'></span>View Documents</button>
+						<p id="no_document"><em>No available document.</em></p>
 					</div>
 					<br><br>
 					<hr>
 					<div align="center">
 						<button type="button" id="verify_payment" name="verify_payment" class="btn btn-primary" value=""
-							style="font-size: 40;">VERIFY PAYMENT</button>
+							style="font-size: 40;" data-toggle='modal' data-target='#verify_payment_modal'>VERIFY
+							PAYMENT</button>
 						<button type="button" id="cancel" style='font-size: 40;'
 							class='btn btn-secondary'>CANCEL</button>
 					</div>
-					<div class="modal fade" id="process_stud_modal" tabindex="-1" role="dialog"
-						aria-labelledby="process_stud_modalLabel" aria-hidden="true">
+					<div class="modal fade" id="verify_payment_modal" tabindex="-1" role="dialog"
+						aria-labelledby="verify_payment_modalLabel" aria-hidden="true">
 						<div class="modal-dialog" role="document">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h5 class="modal-title" id="process_stud_modalLabel"></h5>
+									<h5 class="modal-title" id="verify_payment_modalLabel"></h5>
 									<button type="button" id="close_modal" class="close" data-dismiss="modal"
 										aria-label="Close">
 										<span aria-hidden="true">&times;</span>
 									</button>
 								</div>
 								<div class="modal-body">
-									Student is processed successfully!
+									Payment is verified successfully!
 								</div>
 								<div class="modal-footer">
 									<button type="button" id="close_modal" class="btn btn-secondary"
@@ -337,8 +341,8 @@
 			</div>
 
 			<div class='container' id="view-documents">
-				<div align="center">
-					<img src="../../image/FCPC LOGO.png" id="bg" width="500" height="700" />
+				<div id="view-documents-div" align="center">
+					<img src="" id="bg" width="500" height="700" />
 					<br>
 					<a id='download_document_link' href=''><button type="button" id="download_document"
 							style='font-size: 40;' class="btn btn-info form-control download_link download_link"><span
