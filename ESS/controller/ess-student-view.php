@@ -1,8 +1,8 @@
 <?php
 	error_reporting(E_ALL);
 
-	require('class/configuration/connection.php');
-	require('ess-controller.php');
+	// require('class/configuration/connection.php');
+	// require('ess-controller.php');
 
 	
     if(isset($_SESSION['student_ID']))

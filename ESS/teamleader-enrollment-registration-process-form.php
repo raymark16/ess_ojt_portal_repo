@@ -2,11 +2,6 @@
 
 include('controller/ess-controller.php');
 
-if (isset($_GET['student_id'])) {
-    $_SESSION['student_ID'] = $_GET['student_id'];
-    echo "<script type='text/javascript'>location.href='ess-verification-form.php'</script>";
-}
-
 
 ?>
 
@@ -109,11 +104,6 @@ if (isset($_GET['student_id'])) {
 
     <!-- ##################################################################################################### -->
     <!-- ESS VERIFICATION FORM -->
-    <?php
-    include('controller/ess-controller.php');
-    include('controller/ess-student-view.php');
-    $_SESSION['LINK'] = 'enrollment.php';
-    ?>
 
 
     <div class="container" id="ess-verification">
@@ -400,6 +390,9 @@ if (isset($_GET['student_id'])) {
                             class="form-control" maxlength="40" required disabled>
 
                     </div>
+                    <div class="col-md-6" id="ESCSHS" >
+                        
+                    </div>
                    
                 </div>
 
@@ -410,9 +403,7 @@ if (isset($_GET['student_id'])) {
             <!--<button type="button" id="submit-registration" class="btn btn-primary" value="Save to database">Submit my Online Registration</button>-->
             <!--<input type="button" id="submit-registration" name="submit-registration" class="btn btn-primary" value="Register Now" style = "font-size: 40;">-->
 
-            <input type="submit" id="submit" name="Submit1" class="btn btn-primary" value="VERIFY"
-                style="font-size: 40;">
-
+            <button type="button" id="submit" class="btn btn-primary" name="Submit1" style="font-size: 40;" >VERIFY</button>
             <input type="button" id="return" class="btn btn-primary" style="font-size: 40;" value="CANCEL" />
         </div>
         <hr>

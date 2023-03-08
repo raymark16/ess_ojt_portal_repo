@@ -1,8 +1,8 @@
 <?php
-    include('controller/ess-controller.php');
-    include('controller/ess-student-view.php');
+    // include('controller/ess-controller.php');
+    // include('controller/ess-student-view.php');
 
-    $_SESSION['LINK'] = 'enrollment.php';
+    // $_SESSION['LINK'] = 'enrollment.php';
 
 
 ?>

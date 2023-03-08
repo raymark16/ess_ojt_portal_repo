@@ -1,8 +1,9 @@
 
 <?php
+	session_start();
 	require('class/configuration/connection.php');
 	include('class/configuration/server.php');
-
+	
 	if ($_GET['type'] == 'ESS-STAFF') {
 		$qry = "SELECT `schlusr_lname` `NAME`,
 				       `schlusr_id` `ESS_ID`
@@ -38,7 +39,7 @@
 							ON `reg`.`schlusr_id`=`usr`.`schlusr_id` 
 						WHERE 	`reg`.`schlenrollprereg_verification` < 3 AND 
 							`reg`.`acadyr_id` = 1 AND 
-							`reg`.`acadprd_id` = 2
+							`reg`.`acadprd_id` = 1
 						
 					ORDER BY 	`reg`.`schlenrollprereg_verification` DESC, 
 								`reg`.`schlenrollprereg_regdate` DESC";
@@ -53,6 +54,7 @@
 		`schlenrollprereg_mname`,
 		`schlenrollprereg_suffix`,
 		`schlacadyrlvl_name`,
+		`school_academic_year_level`.`schlacadyrlvl_id` AS `schoolacadyearlevel_id`,
 		`student_type`,
 		`studium_type`,
 		`last_school_sector`,
@@ -96,6 +98,17 @@
 		$rsreg = $dbConn->query($qry);
 		$fetch = $rsreg->fetch_array(MYSQLI_ASSOC);
 	}
+	// if ($_GET['type'] == 'ESS-STAFF') {
+	// 	$qry = "SELECT `schlusr_lname` `NAME`,
+	// 			       `schlusr_id` `ESS_ID`
+	// 			FROM `school_users`
+	// 				WHERE `schlusr_status` = 1 
+	// 				AND `schlusr_isactive` = 1
+	// 				AND `schlusr_acclvl` = 1
+	// 				OR `schlusr_acclvl` = 2";
+	// $rsreg = $dbConn->query($qry);
+	// $fetch = $rsreg->fetch_ALL(MYSQLI_ASSOC);
+	// }
 
 
 
