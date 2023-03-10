@@ -1,0 +1,53 @@
+[17-Aug-2022 08:02:00 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php:4
+Stack trace:
+#0 /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php(4): mysqli_connect()
+#1 /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/server.php(4): require('/home/zstvqx3gf...')
+#2 {main}
+  thrown in /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php on line 4
+[17-Aug-2022 08:04:34 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php:4
+Stack trace:
+#0 /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php(4): mysqli_connect()
+#1 /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/server.php(4): require('/home/zstvqx3gf...')
+#2 {main}
+  thrown in /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php on line 4
+[17-Aug-2022 08:04:42 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php:4
+Stack trace:
+#0 /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php(4): mysqli_connect()
+#1 /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/server.php(4): require('/home/zstvqx3gf...')
+#2 {main}
+  thrown in /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php on line 4
+[17-Aug-2022 08:16:39 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php:4
+Stack trace:
+#0 /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php(4): mysqli_connect()
+#1 /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/server.php(4): require('/home/zstvqx3gf...')
+#2 {main}
+  thrown in /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php on line 4
+[17-Aug-2022 08:22:41 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php:4
+Stack trace:
+#0 /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php(4): mysqli_connect()
+#1 /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/server.php(4): require('/home/zstvqx3gf...')
+#2 {main}
+  thrown in /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php on line 4
+[17-Aug-2022 08:22:48 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php:4
+Stack trace:
+#0 /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php(4): mysqli_connect()
+#1 /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/server.php(4): require('/home/zstvqx3gf...')
+#2 {main}
+  thrown in /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php on line 4
+[17-Aug-2022 08:22:49 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php:4
+Stack trace:
+#0 /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php(4): mysqli_connect()
+#1 /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/server.php(4): require('/home/zstvqx3gf...')
+#2 {main}
+  thrown in /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php on line 4
+[17-Aug-2022 08:22:50 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php:4
+Stack trace:
+#0 /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php(4): mysqli_connect()
+#1 /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/server.php(4): require('/home/zstvqx3gf...')
+#2 {main}
+  thrown in /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php on line 4
+[17-Aug-2022 08:23:05 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php:4
+Stack trace:
+#0 /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php(4): mysqli_connect()
+#1 {main}
+  thrown in /home/zstvqx3gf3b4/public_html/onlineportal.fcpc-inc.com/controller/class/configuration/connection.php on line 4
