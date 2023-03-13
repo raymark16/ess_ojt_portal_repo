@@ -344,7 +344,7 @@ $(document).ready(function () {
             {
                 type: 'POST_VERIFY',
                 reg_id: registration,
-                esc_or_shs_selected: sinok,
+                esc_or_shs_selected: sinok
             },
             dataType: 'json',
             success: function (result) {

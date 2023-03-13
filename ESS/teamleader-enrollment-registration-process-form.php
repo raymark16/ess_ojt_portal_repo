@@ -11,7 +11,9 @@ include('controller/ess-controller.php');
     <script src="tool/bootstrap-5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="tool/jquery-3.6.0.min.js"></script>
     <link rel="icon" href="image/fcpc_logo_2.ico">
-    <script src="js/ess-verification-form.js"></script>
+    <!-- <script src="js/ess-verification-form.js"></script> -->
+    <script src="js/new-ess.js"></script>
+
     <title> TEAMLEADER DASHBOARD</title>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>

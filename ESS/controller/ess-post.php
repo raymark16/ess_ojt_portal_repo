@@ -6,10 +6,10 @@ include './class/configuration/connection-config.php';
 
 if ($_POST['type'] == 'POST_VERIFY') {
 	$reg_id = $_POST['reg_id'];
-	$esc_or_shs_selected = $_POST['esc_or_shs_selected'];
+	$selected = $_POST['esc_or_shs_selected'];
 	$qry = "UPDATE `school_enrollment_pre_registration`
 				SET   `schlenrollprereg_verification` = 1, 
-                `schlenrollprereg_status` = 1, `esc_or_shs` = '$esc_or_shs_selected'
+                `schlenrollprereg_status` = 1, `esc_or_shs` = '$selected'
 				WHERE  `schlenrollprereg_id` = '$reg_id'";
 
 	$rsreg = $dbConn->query($qry);
