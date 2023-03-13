@@ -1,0 +1,99 @@
+.body
+{
+	overflow-x:auto;
+	overflow-y:auto;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    width:auto;
+}
+
+ .body input[type="text"],
+ .body input[type="date"],
+ .body input[type="datetime"],
+ .body input[type="email"],
+ .body input[type="number"],
+ .body input[type="search"],
+ .body input[type="time"],
+ .body input[type="url"],
+ .body input[type="password"],
+ .body textarea,
+ .body select 
+ {
+
+    font-family: inherit;
+	background: rgba(255,255,255,.1);
+	background-color: #e8eeef;
+	border-radius: 4px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border:none solid #BEBEBE;
+	border-radius: 4px;
+	padding: 10px;
+	margin:0px;
+	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+	-webkit-transition: all 0.30s ease-in-out;
+	-webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;	
+	width: 100%;
+}
+
+ .body input[type="reset"],
+ .body input[type="submit"],
+ .body input[type="button"],
+ .body button,
+ .body button a
+{
+    font-family: inherit;
+	border-radius: 4px;
+	display: block;
+	padding: 5px 5px 5px 5px;
+	color: #000;
+	background: #d3d9e7;
+	font-size: 14px;
+	text-align: center;
+	font-style: normal;
+	width: 40%;
+	border: 5px solid #fff;
+}
+
+.body input[type="reset"]:hover,
+.body input[type="submit"]:hover,
+.body input[type="button"]:hover,
+.body button,
+.body button a
+{
+	background: #a8b4d5;
+}
+
+.body table {
+  font-family: inherit;
+  overflow-x:auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: auto;
+  border: 5px solid #ddd;
+  border-radius: 10px;
+  margin:auto;
+}
+
+.body thead
+{
+	text-align: center;
+	background-color: #bcc3d6;
+    color:#000;
+    font-size: 16px;
+    font-weight: Italic;
+    }
+
+.body tbody
+{
+	background-color: #f2f2f2;
+}
+
+.body th, td {
+  text-align: center;
+  padding: 8px;
+}
+
