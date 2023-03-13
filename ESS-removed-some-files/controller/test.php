@@ -39,7 +39,7 @@
 							ON `reg`.`schlusr_id`=`usr`.`schlusr_id` 
 						WHERE 	`reg`.`schlenrollprereg_verification` < 3 AND 
 							`reg`.`acadyr_id` = 1 AND 
-							`reg`.`acadprd_id` = 1
+							`reg`.`acadprd_id` = 2
 						
 					ORDER BY 	`reg`.`schlenrollprereg_verification` DESC, 
 								`reg`.`schlenrollprereg_regdate` DESC";
